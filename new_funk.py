@@ -14,17 +14,6 @@ def teleport(current_point: list,x: int,y: int,mass: list):
     return current_point
 
 
-
-#     sx = x
-#     sy = y
-#     ns = coord_isk([sx, sy], mass)
-#     nx = [ns, sx, sy]
-#     coord_ris(px, mass)
-#     px = nx
-#     coord_ris([character_game,x,y], mass)
-#     return [ns,x,y]
-
-
 def sokoban_hod(command: str,character_game: str,mass: list,px: list,bonus: str,walk: str):
     cur_point = px[0]
     x = int(px[1])
@@ -46,11 +35,7 @@ def sokoban_hod(command: str,character_game: str,mass: list,px: list,bonus: str,
         y-=1
         yy-=2
     else:
-        # current_point = teleport(px, x+1, y, mass)
-        # cur_point = current_point[0]
-        # current_point = teleport([character_game,x,y], x, y, mass)
         pass
-        # return current_point
 
     ns = coord_isk([x, y], mass)
     
@@ -70,8 +55,7 @@ def sokoban_hod(command: str,character_game: str,mass: list,px: list,bonus: str,
         else:
             if command == 'l':
                 teleport([ns,x,y], x-1, y, mass)
-                coord_ris(px, mass)
-                coord_ris([character_game,x,y], mass)
+                teleport([character_game,x+1,y],x,y,mass)
             elif command == 'r':
                 teleport([ns,x,y], x+1, y, mass)
                 coord_ris(px, mass)
@@ -95,7 +79,7 @@ def sokoban_hod(command: str,character_game: str,mass: list,px: list,bonus: str,
         elif command == 'u':
             y+=1
     else:
-
+         
         teleport(px, x, y, mass)
 
 
