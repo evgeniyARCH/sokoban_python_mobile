@@ -42,7 +42,7 @@ def sokoban_hod(command: str,character_game: str,mass: list,px: list,bonus: str,
 
     if ns == bonus:
         nsxy = coord_isk([xx,yy], mass)
-        if nsxy == walk:
+        if nsxy == walk or nsxy == bonus:
             nsxy = ' '
             if command == 'l':
                 x+=1
